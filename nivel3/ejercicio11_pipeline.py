@@ -5,30 +5,25 @@
 # map pasando expresiones lambda.
 # ==============================================================================================================
 
-def crear_conmutador(lista_estados):
+def procesar_coleccion(lista, fn_predicado, fn_transformacion):
 
-    indice = 0
+    elementos_filtrados = filter(fn_predicado, lista)
 
-    def cambiar():
+    elementos_transformados = map(
+        fn_transformacion,
+        elementos_filtrados
+    )
 
-        nonlocal indice
-
-        estado_actual = lista_estados[indice]
-
-        indice = (indice + 1) % len(lista_estados)
-
-        return estado_actual
-
-    return cambiar
+    return list(elementos_transformados)
 
 
-conmutador = crear_conmutador(
-    ["INICIO", "PROCESANDO", "FINALIZADO"]
+numeros = [7, 19, 23, 42, 50, 61, 618]
+
+resultado = procesar_coleccion(
+    numeros,
+    lambda numero: numero % 2 == 1,
+    lambda numero: numero * 2
 )
 
-print("\n========== EJERCICIO 10 ==========")
-print(conmutador())
-print(conmutador())
-print(conmutador())
-print(conmutador())
-print(conmutador())
+print("========== EJERCICIO 11 ==========")
+print("Impares duplicados:", resultado)

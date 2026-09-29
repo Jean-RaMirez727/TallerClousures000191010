@@ -5,25 +5,19 @@
 # basándose en una lambda de formato.
 # ==============================================================================================================
 
-def crear_descuento_dinamico(regla_condicional_lambda):
+def crear_generador_sufijos(patron_lambda):
 
-    descuento = 0.15
+    def generar(nombre):
+        return patron_lambda(nombre)
 
-    def calcular(precio):
-
-        if regla_condicional_lambda(precio):
-            return precio * (1 - descuento)
-
-        return precio
-
-    return calcular
+    return generar
 
 
-# Aplicamos descuento a compras de 100 o más.
-descuento = crear_descuento_dinamico(
-    lambda precio: precio >= 100
+# Creamos nombres de archivos personalizados.
+generador = crear_generador_sufijos(
+    lambda nombre: f"{nombre}_618_final.py"
 )
 
-print("\n========== EJERCICIO 3 ==========")
-print("Precio 618:", descuento(618))
-print("Precio 79:", descuento(79))
+print("\n========== EJERCICIO 4 ==========")
+print(generador("proyecto"))
+print(generador("agenda"))
