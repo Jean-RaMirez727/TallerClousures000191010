@@ -1,0 +1,41 @@
+# Taller de Programación Funcional en Python
+# Jean Pierre Ramirez Tomala
+
+Repositorio correspondiente al taller práctico de **Programación Funcional en Python**.
+
+En este proyecto se aplican conceptos como:
+
+* Funciones de Orden Superior (HOFs)
+* Funciones `lambda`
+* Closures
+* `nonlocal`
+* `map()` y `filter()`
+* Composición de funciones
+* Pipelines
+* Memoización
+* Sistemas de eventos
+
+## Estructura
+
+```text
+taller-programacion-funcional/
+│
+├── nivel1.py
+├── nivel2.py
+├── nivel3.py
+├── nivel4.py
+└── README.md
+```
+
+## Ejecución
+
+Cada nivel puede ejecutarse desde la terminal con:
+
+```bash
+python nivel1.py
+python nivel2.py
+python nivel3.py
+python nivel4.py
+```
+
+Los archivos incluyen pruebas mediante `print()` para verificar el funcionamiento de cada ejercicio.
